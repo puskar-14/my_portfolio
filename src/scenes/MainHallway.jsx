@@ -35,7 +35,7 @@ export function MainHallway({
       if (door) {
         let targetCamX = door.side === 'left' ? -1.0 : door.side === 'right' ? 1.0 : 0;
         let targetCamY = 1.8;
-        let targetCamZ = door.zPos + 1.2;
+        let targetCamZ = door.side === 'end' ? door.zPos + 2.4 : door.zPos + 1.2;
 
         camera.position.x = THREE.MathUtils.lerp(camera.position.x, targetCamX, delta * 3.5);
         camera.position.y = THREE.MathUtils.lerp(camera.position.y, targetCamY, delta * 3.5);
@@ -219,22 +219,22 @@ export function MainHallway({
       {/* END WALL: LUMINOUS GOLDEN ACCENT HORIZON                  */}
       {/* ========================================================= */}
       {/* End Lower Wainscot */}
-      <mesh position={[0, 0.75, -38]} rotation={[0, 0, 0]}>
+      <mesh position={[0, 0.75, -36.6]} rotation={[0, 0, 0]}>
         <planeGeometry args={[hallwayWidth, 1.5]} />
         <meshToonMaterial color="#C4B5FD" />
       </mesh>
       {/* End Upper Accent Wall (Radiant Warm Amber Champagne) */}
-      <mesh position={[0, 3.05, -38]} rotation={[0, 0, 0]}>
+      <mesh position={[0, 3.05, -36.6]} rotation={[0, 0, 0]}>
         <planeGeometry args={[hallwayWidth, 3.1]} />
         <meshToonMaterial color="#FFE8A3" />
       </mesh>
       {/* End Chair Rail Moulding */}
-      <mesh position={[0, 1.5, -37.97]}>
+      <mesh position={[0, 1.5, -36.57]}>
         <boxGeometry args={[hallwayWidth, 0.09, 0.06]} />
         <meshToonMaterial color="#FFFFFF" />
       </mesh>
       {/* End Baseboard */}
-      <mesh position={[0, 0.14, -37.96]}>
+      <mesh position={[0, 0.14, -36.56]}>
         <boxGeometry args={[hallwayWidth, 0.28, 0.08]} />
         <meshToonMaterial color="#FFFFFF" />
       </mesh>
@@ -264,8 +264,8 @@ export function MainHallway({
       <PottedPlant position={[1.8, 0, -14]} scale={1.0} />
       <PottedPlant position={[-1.8, 0, -21]} scale={1.15} />
       <PottedPlant position={[1.8, 0, -28]} scale={1.05} />
-      <PottedPlant position={[-1.4, 0, -36.5]} scale={1.2} />
-      <PottedPlant position={[1.4, 0, -36.5]} scale={1.2} />
+      <PottedPlant position={[-1.5, 0, -35.8]} scale={1.15} />
+      <PottedPlant position={[1.5, 0, -35.8]} scale={1.15} />
 
       {/* Framed Wall Art between doors */}
       <WallFrame position={[2.15, 2.5, -7]} rotation={[0, -Math.PI / 2, 0]} title="Code" color="#C2DBFE" />

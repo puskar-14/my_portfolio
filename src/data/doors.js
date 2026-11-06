@@ -86,7 +86,7 @@ export const doorsData = [
     textAccent: "#B45309",
     badgeBg: "#FEF3C7",
     side: "end",
-    zPos: -36,
+    zPos: -36.5,
     icon: "Compass",
     isMystery: true,
     summary: "A glimpse into future goals, upcoming AI agent architectures, distributed systems, and open source journeys."

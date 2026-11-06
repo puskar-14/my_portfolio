@@ -36,7 +36,8 @@ export function Home() {
   const moveCharacter = useCallback((dx, dz, newFacing) => {
     setCharacterPos((prev) => {
       const newX = Math.max(Math.min(prev[0] + dx, 1.4), -1.4);
-      const newZ = Math.max(Math.min(prev[2] + dz, 2), -38);
+      // Clamp between hallway entrance (2.0) and in front of the final door (-34.2)
+      const newZ = Math.max(Math.min(prev[2] + dz, 2.0), -34.2);
       return [newX, prev[1], newZ];
     });
 
@@ -59,12 +60,11 @@ export function Home() {
     setIsWalking(true);
     setFacing(door.side === 'left' ? 'left' : door.side === 'right' ? 'right' : 'forward');
 
-    // Smoothly step position
-    setCharacterPos([
-      door.side === 'left' ? -0.8 : door.side === 'right' ? 0.8 : 0,
-      0,
-      door.zPos + 1.2
-    ]);
+    // Smoothly step position in front of the selected door
+    const targetX = door.side === 'left' ? -0.8 : door.side === 'right' ? 0.8 : 0;
+    const targetZ = door.side === 'end' ? -34.2 : door.zPos + 1.0;
+
+    setCharacterPos([targetX, 0, targetZ]);
 
     setTimeout(() => {
       setIsWalking(false);
@@ -79,8 +79,9 @@ export function Home() {
   // Glide to specific Z position along the hallway
   const glideToZ = useCallback((targetZ) => {
     setIsWalking(true);
-    setFacing(targetZ < characterPos[2] ? 'forward' : 'backward');
-    setCharacterPos([0, 0, targetZ]);
+    const clampedZ = Math.max(Math.min(targetZ, 2.0), -34.2);
+    setFacing(clampedZ < characterPos[2] ? 'forward' : 'backward');
+    setCharacterPos([0, 0, clampedZ]);
     soundManager.playStep();
 
     if (walkingTimeoutRef.current) clearTimeout(walkingTimeoutRef.current);

@@ -10,8 +10,8 @@ export function NavigationControls({
   onSelectDoor,
   hoveredDoor
 }) {
-  // Compute progress along the hallway (-2 down to -36)
-  const totalSpan = 34; // from -2 to -36
+  // Compute progress along the hallway (-2 down to -34.2)
+  const totalSpan = 32.2;
   const normalizedProgress = Math.min(Math.max((-characterZ - 2) / totalSpan, 0), 1);
 
   return (
