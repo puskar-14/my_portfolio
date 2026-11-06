@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
@@ -75,7 +75,7 @@ export function Bookshelf({ position = [0, 0, 0], rotation = [0, 0, 0] }) {
 }
 
 // Framed Wall Art with Soft Pastel Canvas
-export function WallFrame({ position = [0, 0, 0], rotation = [0, 0, 0], title = '', color = '#FFE5D4' }) {
+export function WallFrame({ position = [0, 0, 0], rotation = [0, 0, 0], color = '#FFE5D4' }) {
   return (
     <group position={position} rotation={rotation}>
       {/* Wooden Frame */}
@@ -159,21 +159,24 @@ export function SunlightWindow({ position = [0, 0, 0], rotation = [0, 0, 0] }) {
   );
 }
 
+// Deterministic pseudo-random positions for dust motes
+function createDustPositions(count) {
+  const pos = new Float32Array(count * 3);
+  for (let i = 0; i < count; i++) {
+    const pseudo1 = ((i * 123.456) % 1.0) - 0.5;
+    const pseudo2 = ((i * 789.012) % 1.0);
+    const pseudo3 = ((i * 345.678) % 1.0);
+    pos[i * 3 + 0] = pseudo1 * 4.0;
+    pos[i * 3 + 1] = 0.5 + pseudo2 * 3.5;
+    pos[i * 3 + 2] = -pseudo3 * 40.0;
+  }
+  return pos;
+}
+
 // Floating Dust Motes / Sunlight Particles
 export function FloatingDustMotes({ count = 120 }) {
   const pointsRef = useRef();
-
-  const [positions, scales] = useMemo(() => {
-    const pos = new Float32Array(count * 3);
-    const sc = new Float32Array(count);
-    for (let i = 0; i < count; i++) {
-      pos[i * 3 + 0] = (Math.random() - 0.5) * 4.0; // X across hallway
-      pos[i * 3 + 1] = 0.5 + Math.random() * 3.5;    // Y height
-      pos[i * 3 + 2] = -Math.random() * 40.0;        // Z down hallway
-      sc[i] = 0.02 + Math.random() * 0.03;
-    }
-    return [pos, sc];
-  }, [count]);
+  const [positions] = useState(() => createDustPositions(count));
 
   useFrame((state) => {
     if (!pointsRef.current) return;

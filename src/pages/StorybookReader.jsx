@@ -8,16 +8,9 @@ import { AchievementsRoom } from '../scenes/AchievementsRoom';
 import { ContactRoom } from '../scenes/ContactRoom';
 import { NextChapterRoom } from '../scenes/NextChapterRoom';
 import { 
-  Sparkles, 
   BookOpen, 
   ArrowRight, 
-  GraduationCap, 
-  Code2, 
-  ShoppingBag, 
-  Trophy, 
-  Mail, 
-  Compass, 
-  FileDown 
+  Compass 
 } from 'lucide-react';
 import { soundManager } from '../utils/audio';
 

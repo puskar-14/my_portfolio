@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from 'react';
-import { useFrame, useThree } from '@react-three/fiber';
+import React from 'react';
+import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { Character } from '../components/Character';
 import { Door3D } from '../components/Door3D';
@@ -15,7 +15,6 @@ import { doorsData } from '../data/doors';
 
 export function MainHallway({
   characterPos,
-  targetPos,
   isWalking,
   facing,
   hoveredDoor,
@@ -24,12 +23,12 @@ export function MainHallway({
   onSelectDoor,
   isEnteringRoom = false
 }) {
-  const { camera } = useThree();
   const hallwayWidth = 4.4;
   const hallwayLength = 46;
 
   // Camera smooth follow logic
-  useFrame((_, delta) => {
+  useFrame((state, delta) => {
+    const { camera } = state;
     if (isEnteringRoom && selectedDoor) {
       // Find door position
       const door = doorsData.find(d => d.id === selectedDoor);

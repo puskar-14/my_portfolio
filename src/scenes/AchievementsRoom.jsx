@@ -11,9 +11,7 @@ import {
   ArrowLeft, 
   CheckCircle2, 
   Sparkles, 
-  ExternalLink, 
-  TrendingUp, 
-  Code2 
+  TrendingUp 
 } from 'lucide-react';
 import { soundManager } from '../utils/audio';
 

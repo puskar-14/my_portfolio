@@ -8,7 +8,6 @@ import {
   Award, 
   ArrowLeft, 
   CheckCircle2, 
-  Cpu, 
   Sparkles, 
   LibraryBig 
 } from 'lucide-react';

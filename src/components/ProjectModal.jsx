@@ -1,4 +1,4 @@
-import { X, ExternalLink, CheckCircle2, Cpu, Database, Layout, Sparkles, Layers } from 'lucide-react';
+import { X, ExternalLink, CheckCircle2, Sparkles } from 'lucide-react';
 import { GithubIcon } from './Icons';
 import { soundManager } from '../utils/audio';
 

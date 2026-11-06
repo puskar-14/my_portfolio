@@ -20,7 +20,6 @@ export function Door3D({
   // Position and orientation based on which wall
   const isLeft = door.side === 'left';
   const isRight = door.side === 'right';
-  const isEnd = door.side === 'end';
 
   let posX = 0;
   let rotY = 0;
@@ -196,7 +195,6 @@ export function Door3D({
           color={door.textAccent || '#3C3630'}
           anchorX="center"
           anchorY="middle"
-          font="https://fonts.gstatic.com/s/plusjakartasans/v8/LDIbaomQNQcsA88c7O9yZ4KMCoOg4Ko20yygg_Pb.woff"
         >
           {door.title.toUpperCase()}
         </Text>

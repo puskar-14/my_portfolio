@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { soundManager } from '../utils/audio';
 
 export function InteractionPrompt({ door, onEnter }) {

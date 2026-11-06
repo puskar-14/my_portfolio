@@ -2,17 +2,9 @@ import React, { useState } from 'react';
 import { skillsData } from '../data/skills';
 import { 
   Code2, 
-  Terminal, 
-  Layers, 
-  Server, 
-  Database, 
-  GitBranch, 
   ArrowLeft, 
-  Check, 
   Sparkles, 
-  Monitor, 
-  Cpu, 
-  Play 
+  Monitor 
 } from 'lucide-react';
 import { soundManager } from '../utils/audio';
 
@@ -76,7 +68,6 @@ ORDER BY satisfaction_rate DESC;`
 
 export function SkillsRoom({ onBackToHallway, onNavigateRoom }) {
   const [selectedSnippet, setSelectedSnippet] = useState('python');
-  const [copied, setCopied] = useState(false);
 
   return (
     <div className="relative w-full max-w-5xl mx-auto my-6 p-6 sm:p-10 bg-[#FAF7F2] sketch-card text-[#3C3630] animate-fadeIn">

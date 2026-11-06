@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { MainHallway } from '../scenes/MainHallway';
 import { Navbar } from '../components/Navbar';
@@ -23,15 +23,13 @@ export function Home() {
   const [hoveredDoor, setHoveredDoor] = useState(null);
   const [selectedDoor, setSelectedDoor] = useState(null);
   const [isEnteringRoom, setIsEnteringRoom] = useState(false);
-  const [nearbyDoor, setNearbyDoor] = useState(null);
 
   const walkingTimeoutRef = useRef(null);
 
-  // Check if character is close to any door
-  useEffect(() => {
+  // Derive active door when character is within 2.5 units
+  const nearbyDoor = useMemo(() => {
     const curZ = characterPos[2];
-    const found = doorsData.find((d) => Math.abs(d.zPos - curZ) < 2.5);
-    setNearbyDoor(found || null);
+    return doorsData.find((d) => Math.abs(d.zPos - curZ) < 2.5) || null;
   }, [characterPos]);
 
   // Handle walking step
@@ -195,7 +193,6 @@ export function Home() {
           >
             <MainHallway
               characterPos={characterPos}
-              targetPos={characterPos}
               isWalking={isWalking}
               facing={facing}
               hoveredDoor={hoveredDoor}

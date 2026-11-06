@@ -5,14 +5,6 @@ import {
   Sparkles, 
   ExternalLink, 
   ArrowLeft, 
-  ShoppingBag, 
-  PiggyBank, 
-  Binary, 
-  GraduationCap, 
-  Wrench, 
-  Layers, 
-  Flame, 
-  BarChart3, 
   CheckCircle2, 
   Lightbulb 
 } from 'lucide-react';

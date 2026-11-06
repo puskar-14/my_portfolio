@@ -1,38 +1,14 @@
 import React from 'react';
 import { doorsData } from '../data/doors';
-import { 
-  ArrowUp, 
-  ArrowDown, 
-  ArrowLeft, 
-  ArrowRight, 
-  GraduationCap, 
-  Code2, 
-  FolderGit2, 
-  Trophy, 
-  Mail, 
-  Compass, 
-  Sparkles, 
-  MousePointer 
-} from 'lucide-react';
+import { MousePointer } from 'lucide-react';
 import { soundManager } from '../utils/audio';
-
-const iconMap = {
-  GraduationCap,
-  Code2,
-  FolderGit2,
-  Trophy,
-  Mail,
-  Compass,
-  Sparkles
-};
 
 export function NavigationControls({
   characterZ,
   onGlideToZ,
   activeDoorId,
   onSelectDoor,
-  hoveredDoor,
-  isWalking
+  hoveredDoor
 }) {
   // Compute progress along the hallway (-2 down to -36)
   const totalSpan = 34; // from -2 to -36

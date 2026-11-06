@@ -4,13 +4,8 @@ import {
   Sparkles, 
   ArrowLeft, 
   Compass, 
-  Cpu, 
-  Bot, 
-  Cloud, 
-  Code2, 
   Rocket, 
-  Star, 
-  Milestone 
+  Star 
 } from 'lucide-react';
 import { soundManager } from '../utils/audio';
 
