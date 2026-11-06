@@ -69,84 +69,164 @@ export function MainHallway({
 
   return (
     <>
-      {/* Warm Ambient Sunlight & Fill Lights */}
-      <ambientLight intensity={1.1} color="#FFFBF2" />
+      {/* Warm Ambient Sunlight & Cozy Fill Lights */}
+      <ambientLight intensity={1.25} color="#FFF8EB" />
       <directionalLight
-        position={[3, 8, 4]}
-        intensity={1.2}
-        color="#FFF5E0"
+        position={[4, 9, 5]}
+        intensity={1.35}
+        color="#FFE9C7"
         castShadow
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
       />
-      <hemisphereLight skyColor="#FAF5EE" groundColor="#E8DFD0" intensity={0.6} />
+      <hemisphereLight skyColor="#FAF2E6" groundColor="#C8D8CE" intensity={0.7} />
 
-      {/* Hallway Floor (Warm Wood Plank Tone) */}
+      {/* Hallway Floor (Rich Warm Honey-Oak Parquet) */}
       <mesh position={[0, 0, -18]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <planeGeometry args={[hallwayWidth, hallwayLength]} />
-        <meshToonMaterial color="#EBE1D2" />
+        <meshToonMaterial color="#DECCA8" />
       </mesh>
 
-      {/* Hand-Drawn Style Runner Carpet down hallway */}
+      {/* Subtle Wooden Floor Plank Inlay Seams */}
+      {[-1.5, -0.5, 0.5, 1.5].map((x, idx) => (
+        <mesh key={`plank-${idx}`} position={[x, 0.003, -18]} rotation={[-Math.PI / 2, 0, 0]}>
+          <planeGeometry args={[0.02, hallwayLength]} />
+          <meshBasicMaterial color="#CEB892" />
+        </mesh>
+      ))}
+
+      {/* Hand-Drawn Woven Runner Carpet down Hallway (Warm Apricot & Pastel Sage Trim) */}
       <mesh position={[0, 0.008, -18]} rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[1.9, hallwayLength - 2]} />
-        <meshToonMaterial color="#F6ECE1" />
+        <meshToonMaterial color="#F7D4BE" />
       </mesh>
-      {/* Carpet Border Left */}
-      <mesh position={[-0.95, 0.01, -18]} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[0.06, hallwayLength - 2]} />
-        <meshBasicMaterial color="#DEC2A8" />
+      {/* Inner Cream Border Left & Right */}
+      <mesh position={[-0.88, 0.01, -18]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[0.04, hallwayLength - 2]} />
+        <meshBasicMaterial color="#FFF9F2" />
       </mesh>
-      {/* Carpet Border Right */}
-      <mesh position={[0.95, 0.01, -18]} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[0.06, hallwayLength - 2]} />
-        <meshBasicMaterial color="#DEC2A8" />
+      <mesh position={[0.88, 0.01, -18]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[0.04, hallwayLength - 2]} />
+        <meshBasicMaterial color="#FFF9F2" />
+      </mesh>
+      {/* Outer Pastel Sage Border Left & Right */}
+      <mesh position={[-0.95, 0.012, -18]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[0.08, hallwayLength - 2]} />
+        <meshToonMaterial color="#799988" />
+      </mesh>
+      <mesh position={[0.95, 0.012, -18]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[0.08, hallwayLength - 2]} />
+        <meshToonMaterial color="#799988" />
       </mesh>
 
-      {/* Hallway Ceiling with Cream Tone */}
+      {/* Carpet Fringe Ends */}
+      <mesh position={[0, 0.012, 1.05]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[1.9, 0.1]} />
+        <meshToonMaterial color="#E8D5BC" />
+      </mesh>
+      <mesh position={[0, 0.012, -37.05]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[1.9, 0.1]} />
+        <meshToonMaterial color="#E8D5BC" />
+      </mesh>
+
+      {/* Hallway Ceiling with Soft Cream Warmth */}
       <mesh position={[0, 4.6, -18]} rotation={[Math.PI / 2, 0, 0]}>
         <planeGeometry args={[hallwayWidth, hallwayLength]} />
-        <meshToonMaterial color="#FCFAF6" />
+        <meshToonMaterial color="#FCF8F2" />
       </mesh>
 
-      {/* Ceiling Wooden Beams */}
+      {/* Ceiling Wooden Beams (Warm Sandalwood Tone) */}
       {[-2, -7, -12, -17, -22, -27, -32, -37].map((z, idx) => (
         <group key={idx} position={[0, 4.5, z]}>
           <mesh>
             <boxGeometry args={[hallwayWidth, 0.22, 0.24]} />
-            <meshToonMaterial color="#E4D5C3" />
+            <meshToonMaterial color="#D5C3AE" />
           </mesh>
           {/* Hanging pendant lamp on alternating beams */}
           {idx % 2 === 1 && <HangingLamp position={[0, -0.6, 0]} />}
         </group>
       ))}
 
-      {/* Left Wall (Warm Cream / Ivory) */}
-      <mesh position={[-hallwayWidth / 2, 2.3, -18]} rotation={[0, Math.PI / 2, 0]}>
-        <planeGeometry args={[hallwayLength, 4.6]} />
-        <meshToonMaterial color="#F8F3EA" />
+      {/* ========================================================= */}
+      {/* LEFT WALL: TWO-TONE DECENT PASTEL THEME (SAGE & CREAM)    */}
+      {/* ========================================================= */}
+      {/* Left Lower Wainscoting (Soft Pastel French Sage) */}
+      <mesh position={[-hallwayWidth / 2, 0.75, -18]} rotation={[0, Math.PI / 2, 0]}>
+        <planeGeometry args={[hallwayLength, 1.5]} />
+        <meshToonMaterial color="#CAD9CE" />
+      </mesh>
+      {/* Left Upper Wall (Warm French Antique Ivory) */}
+      <mesh position={[-hallwayWidth / 2, 3.05, -18]} rotation={[0, Math.PI / 2, 0]}>
+        <planeGeometry args={[hallwayLength, 3.1]} />
+        <meshToonMaterial color="#FAF5EC" />
+      </mesh>
+      {/* Left Chair Rail Moulding (Decorative Trim at y=1.5) */}
+      <mesh position={[-hallwayWidth / 2 + 0.03, 1.5, -18]} rotation={[0, Math.PI / 2, 0]}>
+        <boxGeometry args={[hallwayLength, 0.09, 0.06]} />
+        <meshToonMaterial color="#A4B9AB" />
+      </mesh>
+      {/* Left Picture Rail Trim at y=3.9 */}
+      <mesh position={[-hallwayWidth / 2 + 0.02, 3.9, -18]} rotation={[0, Math.PI / 2, 0]}>
+        <boxGeometry args={[hallwayLength, 0.05, 0.04]} />
+        <meshToonMaterial color="#D5C5B2" />
       </mesh>
       {/* Left Wall Baseboard Trim */}
-      <mesh position={[-hallwayWidth / 2 + 0.04, 0.15, -18]} rotation={[0, Math.PI / 2, 0]}>
-        <boxGeometry args={[hallwayLength, 0.3, 0.08]} />
-        <meshToonMaterial color="#DFD4C4" />
+      <mesh position={[-hallwayWidth / 2 + 0.04, 0.14, -18]} rotation={[0, Math.PI / 2, 0]}>
+        <boxGeometry args={[hallwayLength, 0.28, 0.08]} />
+        <meshToonMaterial color="#BDAC99" />
       </mesh>
 
-      {/* Right Wall (Warm Cream / Ivory) */}
-      <mesh position={[hallwayWidth / 2, 2.3, -18]} rotation={[0, -Math.PI / 2, 0]}>
-        <planeGeometry args={[hallwayLength, 4.6]} />
-        <meshToonMaterial color="#F8F3EA" />
+      {/* ========================================================= */}
+      {/* RIGHT WALL: TWO-TONE DECENT PASTEL THEME (SAGE & CREAM)   */}
+      {/* ========================================================= */}
+      {/* Right Lower Wainscoting (Soft Pastel French Sage) */}
+      <mesh position={[hallwayWidth / 2, 0.75, -18]} rotation={[0, -Math.PI / 2, 0]}>
+        <planeGeometry args={[hallwayLength, 1.5]} />
+        <meshToonMaterial color="#CAD9CE" />
+      </mesh>
+      {/* Right Upper Wall (Warm French Antique Ivory) */}
+      <mesh position={[hallwayWidth / 2, 3.05, -18]} rotation={[0, -Math.PI / 2, 0]}>
+        <planeGeometry args={[hallwayLength, 3.1]} />
+        <meshToonMaterial color="#FAF5EC" />
+      </mesh>
+      {/* Right Chair Rail Moulding (Decorative Trim at y=1.5) */}
+      <mesh position={[hallwayWidth / 2 - 0.03, 1.5, -18]} rotation={[0, -Math.PI / 2, 0]}>
+        <boxGeometry args={[hallwayLength, 0.09, 0.06]} />
+        <meshToonMaterial color="#A4B9AB" />
+      </mesh>
+      {/* Right Picture Rail Trim at y=3.9 */}
+      <mesh position={[hallwayWidth / 2 - 0.02, 3.9, -18]} rotation={[0, -Math.PI / 2, 0]}>
+        <boxGeometry args={[hallwayLength, 0.05, 0.04]} />
+        <meshToonMaterial color="#D5C5B2" />
       </mesh>
       {/* Right Wall Baseboard Trim */}
-      <mesh position={[hallwayWidth / 2 - 0.04, 0.15, -18]} rotation={[0, -Math.PI / 2, 0]}>
-        <boxGeometry args={[hallwayLength, 0.3, 0.08]} />
-        <meshToonMaterial color="#DFD4C4" />
+      <mesh position={[hallwayWidth / 2 - 0.04, 0.14, -18]} rotation={[0, -Math.PI / 2, 0]}>
+        <boxGeometry args={[hallwayLength, 0.28, 0.08]} />
+        <meshToonMaterial color="#BDAC99" />
       </mesh>
 
-      {/* End Wall of Hallway */}
-      <mesh position={[0, 2.3, -38]} rotation={[0, 0, 0]}>
-        <planeGeometry args={[hallwayWidth, 4.6]} />
-        <meshToonMaterial color="#F4EDE2" />
+      {/* ========================================================= */}
+      {/* END WALL: WARM HORIZON ACCENT WALL                        */}
+      {/* ========================================================= */}
+      {/* End Lower Wainscot */}
+      <mesh position={[0, 0.75, -38]} rotation={[0, 0, 0]}>
+        <planeGeometry args={[hallwayWidth, 1.5]} />
+        <meshToonMaterial color="#CAD9CE" />
+      </mesh>
+      {/* End Upper Accent Wall (Warm Buttercream/Golden Ivory) */}
+      <mesh position={[0, 3.05, -38]} rotation={[0, 0, 0]}>
+        <planeGeometry args={[hallwayWidth, 3.1]} />
+        <meshToonMaterial color="#FBF0D9" />
+      </mesh>
+      {/* End Chair Rail Moulding */}
+      <mesh position={[0, 1.5, -37.97]}>
+        <boxGeometry args={[hallwayWidth, 0.09, 0.06]} />
+        <meshToonMaterial color="#A4B9AB" />
+      </mesh>
+      {/* End Baseboard */}
+      <mesh position={[0, 0.14, -37.96]}>
+        <boxGeometry args={[hallwayWidth, 0.28, 0.08]} />
+        <meshToonMaterial color="#BDAC99" />
       </mesh>
 
       {/* The 5 Main Doors + The Next Chapter Door */}
