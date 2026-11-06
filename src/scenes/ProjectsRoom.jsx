@@ -83,48 +83,9 @@ export function ProjectsRoom({ onBackToHallway, onNavigateRoom }) {
         </div>
       </div>
 
-      {/* Workshop Workbench Highlight: ShopSense Interactive Miniature */}
-      <div className="my-8 p-6 rounded-2xl bg-white border-2 border-[#3C3630] shadow-sm">
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#EA580C] animate-pulse" />
-            <h3 className="text-sm font-bold uppercase tracking-wider text-[#7C2D12]">
-              Interactive Project Workbench 01: ShopSense Telemetry
-            </h3>
-          </div>
-          <button
-            onClick={() => {
-              soundManager.playDoorOpen();
-              setSelectedProject(projectsData[0]);
-            }}
-            className="text-xs font-bold text-[#EA580C] hover:underline flex items-center gap-1 cursor-pointer"
-          >
-            Inspect ShopSense Full Dossier →
-          </button>
-        </div>
-
-        {/* Miniature interactive prototype widget */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 rounded-xl bg-[#FAF7F2] border border-[#3C3630]/20">
-          <div className="p-3 bg-white rounded-lg border border-[#E2E8F0] text-center">
-            <p className="text-[11px] uppercase tracking-wider text-[#64748B] font-medium">Customer Sentiment Velocity</p>
-            <p className="text-2xl font-black text-[#10B981] mt-1">94.2%</p>
-            <p className="text-[10px] text-[#059669] mt-0.5">↑ 12% Positive Shift</p>
-          </div>
-          <div className="p-3 bg-white rounded-lg border border-[#E2E8F0] text-center">
-            <p className="text-[11px] uppercase tracking-wider text-[#64748B] font-medium">FastAPI Ingestion Throughput</p>
-            <p className="text-2xl font-black text-[#3B82F6] mt-1">~18ms</p>
-            <p className="text-[10px] text-[#2563EB] mt-0.5">PostgreSQL Indexed Latency</p>
-          </div>
-          <div className="p-3 bg-white rounded-lg border border-[#E2E8F0] text-center">
-            <p className="text-[11px] uppercase tracking-wider text-[#64748B] font-medium">Friction Detection</p>
-            <p className="text-2xl font-black text-[#EA580C] mt-1">3 Active</p>
-            <p className="text-[10px] text-[#C2410C] mt-0.5">Automated SKU Alerts</p>
-          </div>
-        </div>
-      </div>
 
       {/* Filter Tabs */}
-      <div className="flex items-center gap-2 mb-6">
+      <div className="flex items-center gap-2 my-8">
         <button
           onClick={() => setActiveFilter('all')}
           className={`px-3 py-1.5 rounded-lg text-xs font-semibold border border-[#3C3630] cursor-pointer transition-colors ${
