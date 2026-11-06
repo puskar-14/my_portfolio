@@ -43,7 +43,7 @@ export const doorsData = [
     zPos: -18,
     isFlagship: true,
     icon: "Sparkles",
-    summary: "Interactive showcase of ShopSense E-Commerce Analytics, Career Ladder (Gemini AI), and 250+ LeetCode Vault."
+    summary: "Interactive showcase of ShopSense (Infosys Springboard), Career Ladder (Gemini AI), AI Finance Health Coach, ReturnShield AI, and GovTech systems."
   },
   {
     id: "achievements",

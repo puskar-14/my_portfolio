@@ -66,10 +66,10 @@ export function ProjectsRoom({ onBackToHallway, onNavigateRoom }) {
               Featured Systems & Inventions
             </h1>
             <p className="text-base sm:text-lg text-[#C2410C] font-semibold mt-1">
-              ShopSense • Career Ladder (Gemini AI) • 250+ LeetCode Vault
+              ShopSense • Career Ladder • AI Finance Coach • ReturnShield AI • e-GovDrishti
             </p>
             <p className="text-xs sm:text-sm text-[#9A3412] mt-3 leading-relaxed">
-              Every project here was born from an authentic problem: transforming overwhelming feedback streams into clear intelligence, and bringing clarity to everyday workflows.
+              From AI-powered multi-vendor e-commerce analytics (ShopSense) and Gemini career mentoring (Career Ladder) to FinTech refund risk scoring, GovTech accessibility, and autonomous multi-agent healthcare architectures — practical engineering built to solve real-world problems.
             </p>
           </div>
 
@@ -77,12 +77,12 @@ export function ProjectsRoom({ onBackToHallway, onNavigateRoom }) {
             <div className="w-12 h-12 rounded-full bg-[#FFDBC2] border border-[#3C3630] flex items-center justify-center mx-auto mb-2 text-[#EA580C]">
               <Sparkles className="w-6 h-6" />
             </div>
-            <p className="text-xs font-bold uppercase tracking-wider text-[#EA580C]">Flagship Project</p>
-            <p className="text-xs font-bold text-[#7C2D12] mt-0.5">ShopSense Analytics</p>
+            <p className="text-xs font-bold uppercase tracking-wider text-[#EA580C]">Flagship Systems</p>
+            <p className="text-xs font-bold text-[#7C2D12] mt-0.5">ShopSense & Career Ladder</p>
+            <p className="text-[10px] text-[#9A3412] mt-0.5 font-medium">{projectsData.length} Built & Concept Systems</p>
           </div>
         </div>
       </div>
-
 
       {/* Filter Tabs */}
       <div className="flex items-center gap-2 my-8">
@@ -104,7 +104,7 @@ export function ProjectsRoom({ onBackToHallway, onNavigateRoom }) {
               : 'bg-white hover:bg-[#F4EFE6] text-[#70675D]'
           }`}
         >
-          Flagships & AI (2)
+          Flagships & AI ({projectsData.filter(p => p.isFeatured).length})
         </button>
       </div>
 
@@ -121,13 +121,20 @@ export function ProjectsRoom({ onBackToHallway, onNavigateRoom }) {
           >
             <div>
               {/* Header Badge */}
-              <div className="flex items-center justify-between gap-2 mb-3">
-                <span
-                  className="px-2.5 py-1 text-xs font-bold rounded-full border border-[#3C3630]"
-                  style={{ backgroundColor: project.pastel, color: '#3C3630' }}
-                >
-                  {project.badge}
-                </span>
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <span
+                    className="px-2.5 py-1 text-xs font-bold rounded-full border border-[#3C3630]"
+                    style={{ backgroundColor: project.pastel, color: '#3C3630' }}
+                  >
+                    {project.badge}
+                  </span>
+                  {project.status && (
+                    <span className="px-2 py-0.5 text-[10px] font-mono font-semibold rounded bg-[#FAF7F2] text-[#475569] border border-[#CBD5E1]">
+                      {project.status}
+                    </span>
+                  )}
+                </div>
                 <span className="text-xs font-mono text-[#70675D]">{project.category}</span>
               </div>
 
