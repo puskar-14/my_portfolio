@@ -49,16 +49,16 @@ export const doorsData = [
     id: "achievements",
     number: "04",
     title: "Achievements",
-    subtitle: "250+ LeetCode, Virtual Internships & Certifications",
-    roomName: "The Milestone Summit",
-    color: "#6DE0A6", // Fresh Mint Emerald
-    borderHover: "#10B981",
-    textAccent: "#047857",
-    badgeBg: "#D1FAE5",
+    subtitle: "Starry Milestones, 250+ LeetCode & Internships",
+    roomName: "The Starlight Hall of Milestones",
+    color: "#FDE047", // Radiant Star Gold
+    borderHover: "#F59E0B",
+    textAccent: "#B45309",
+    badgeBg: "#FEF9C3",
     side: "right",
     zPos: -24,
-    icon: "Trophy",
-    summary: "Infosys & ServiceNow virtual internships, 250+ LeetCode solved, and 5 verified industry certifications."
+    icon: "Star",
+    summary: "Starry milestones: Infosys & ServiceNow virtual internships, 250+ LeetCode solved, and 5 verified star certifications."
   },
   {
     id: "contact",
