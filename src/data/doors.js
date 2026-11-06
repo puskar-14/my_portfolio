@@ -33,7 +33,7 @@ export const doorsData = [
     id: "projects",
     number: "03",
     title: "Projects",
-    subtitle: "ShopSense, AI Finance Health Coach & inventions",
+    subtitle: "ShopSense, Career Ladder & AI systems",
     roomName: "The Invention Workshop",
     color: "#FFA875", // Juicy Coral Peach (Centerpiece!)
     borderHover: "#F97316",
@@ -43,13 +43,13 @@ export const doorsData = [
     zPos: -18,
     isFlagship: true,
     icon: "Sparkles",
-    summary: "Interactive showcase of ShopSense Customer Analytics, AI Finance Health Coach, and algorithmic repositories."
+    summary: "Interactive showcase of ShopSense E-Commerce Analytics, Career Ladder (Gemini AI), and 250+ LeetCode Vault."
   },
   {
     id: "achievements",
     number: "04",
     title: "Achievements",
-    subtitle: "250+ LeetCode, 90+ CodeChef & technical milestones",
+    subtitle: "250+ LeetCode, Virtual Internships & Certifications",
     roomName: "The Milestone Summit",
     color: "#6DE0A6", // Fresh Mint Emerald
     borderHover: "#10B981",
@@ -58,7 +58,7 @@ export const doorsData = [
     side: "right",
     zPos: -24,
     icon: "Trophy",
-    summary: "Coding benchmarks, 250+ LeetCode solved, 90+ CodeChef challenges, trophies, and certifications."
+    summary: "Infosys & ServiceNow virtual internships, 250+ LeetCode solved, and 5 verified industry certifications."
   },
   {
     id: "contact",

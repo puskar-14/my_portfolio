@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { profileData } from '../data/profile';
 import { 
   Mail, 
+  Phone,
   FileDown, 
   ArrowLeft, 
   Send, 
@@ -17,6 +18,7 @@ import { soundManager } from '../utils/audio';
 
 export function ContactRoom({ onBackToHallway, onNavigateRoom }) {
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
@@ -25,6 +27,13 @@ export function ContactRoom({ onBackToHallway, onNavigateRoom }) {
     navigator.clipboard.writeText(profileData.email);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2000);
+  };
+
+  const handleCopyPhone = () => {
+    soundManager.playHover();
+    navigator.clipboard.writeText(profileData.phone);
+    setCopiedPhone(true);
+    setTimeout(() => setCopiedPhone(false), 2000);
   };
 
   const handleSubmit = (e) => {
@@ -130,6 +139,26 @@ export function ContactRoom({ onBackToHallway, onNavigateRoom }) {
             </button>
           </div>
 
+          {/* Phone / WhatsApp Card */}
+          <div className="p-5 rounded-2xl bg-white border-2 border-[#3C3630] sketch-card flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3.5">
+              <div className="w-10 h-10 rounded-xl bg-[#ECFDF5] border border-[#A7F3D0] text-[#059669] flex items-center justify-center shrink-0">
+                <Phone className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-wider text-[#70675D] font-bold">Phone / WhatsApp</p>
+                <p className="text-sm sm:text-base font-bold text-[#1E293B] font-mono mt-0.5">{profileData.phone}</p>
+              </div>
+            </div>
+            <button
+              onClick={handleCopyPhone}
+              className="p-2.5 rounded-lg bg-[#FAF7F2] hover:bg-[#D1FAE5] border border-[#3C3630] sketch-btn transition-colors cursor-pointer shrink-0"
+              title="Copy Phone Number"
+            >
+              {copiedPhone ? <Check className="w-4 h-4 text-[#10B981]" /> : <Copy className="w-4 h-4 text-[#3C3630]" />}
+            </button>
+          </div>
+
           {/* LinkedIn Card */}
           <a
             href={profileData.linkedin}
@@ -165,7 +194,7 @@ export function ContactRoom({ onBackToHallway, onNavigateRoom }) {
               <div>
                 <p className="text-xs uppercase tracking-wider text-[#70675D] font-bold">Source Code & Repositories</p>
                 <p className="text-sm font-bold text-[#1E293B] group-hover:text-[#64748B] transition-colors">
-                  github.com/Puskar-dev
+                  github.com/puskar-14
                 </p>
               </div>
             </div>
@@ -177,15 +206,14 @@ export function ContactRoom({ onBackToHallway, onNavigateRoom }) {
             <div>
               <p className="text-xs uppercase tracking-wider text-[#881337] font-bold">Curriculum Vitae</p>
               <h4 className="text-sm sm:text-base font-extrabold text-[#4C0519]">Official Engineering Resume</h4>
-              <p className="text-xs text-[#881337] mt-0.5">Updated for 2025 Graduate Software Roles</p>
+              <p className="text-xs text-[#881337] mt-0.5">Updated with Infosys & ServiceNow Internships</p>
             </div>
             <a
-              href="#resume"
-              onClick={(e) => {
-                e.preventDefault();
-                soundManager.playTrophyChime();
-                alert(`Resume requested for ${profileData.name}. In a production deployment, this links to Puskar's official PDF resume!`);
-              }}
+              href="/Puskar_Kumar_Prasad_Resume.pdf"
+              download="Puskar_Kumar_Prasad_Resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => soundManager.playTrophyChime()}
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#881337] text-white font-bold text-xs sketch-btn hover:bg-[#4C0519] transition-colors cursor-pointer shrink-0"
             >
               <FileDown className="w-4 h-4" /> Download PDF

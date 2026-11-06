@@ -145,16 +145,17 @@ export function Navbar({
           </button>
 
           {/* Resume CTA */}
-          <button
-            onClick={() => {
-              soundManager.playTrophyChime();
-              alert(`Puskar's Resume: Final-Year B.Tech CSE (College of Engineering & Management, Kolaghat). Contact: ${profileData.email}`);
-            }}
+          <a
+            href="/Puskar_Kumar_Prasad_Resume.pdf"
+            download="Puskar_Kumar_Prasad_Resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => soundManager.playTrophyChime()}
             className="px-3.5 py-1.5 rounded-lg bg-[#3C3630] text-white hover:bg-[#25201B] text-xs font-bold flex items-center gap-1.5 sketch-btn cursor-pointer"
           >
             <FileDown className="w-3.5 h-3.5" />
             <span>Resume</span>
-          </button>
+          </a>
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -212,15 +213,20 @@ export function Navbar({
             >
               {isLofiPlaying ? '🔊 Lofi Playing' : '🎵 Play Lofi'}
             </button>
-            <button
+            <a
+              href="/Puskar_Kumar_Prasad_Resume.pdf"
+              download="Puskar_Kumar_Prasad_Resume.pdf"
+              target="_blank"
+              rel="noreferrer"
               onClick={() => {
-                alert(`Puskar's Resume: B.Tech CSE (College of Engineering & Management, Kolaghat)`);
+                soundManager.playTrophyChime();
                 setMobileMenuOpen(false);
               }}
-              className="flex-1 py-1.5 text-xs font-bold rounded-lg bg-[#3C3630] text-white text-center"
+              className="flex-1 py-1.5 text-xs font-bold rounded-lg bg-[#3C3630] text-white text-center flex items-center justify-center gap-1"
             >
-              Resume
-            </button>
+              <FileDown className="w-3.5 h-3.5" />
+              <span>Resume</span>
+            </a>
           </div>
         </div>
       )}

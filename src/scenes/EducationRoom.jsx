@@ -69,12 +69,13 @@ export function EducationRoom({ onBackToHallway, onNavigateRoom }) {
             </div>
           </div>
 
-          <div className="p-4 rounded-xl bg-white/90 border border-[#3C3630]/30 text-center shrink-0">
+          <div className="p-4 rounded-xl bg-white/95 border-2 border-[#3C3630] text-center shrink-0 shadow-xs">
             <div className="w-12 h-12 rounded-full bg-[#C2DBFE] border border-[#3C3630] flex items-center justify-center mx-auto mb-2 text-[#1E40AF]">
               <GraduationCap className="w-6 h-6" />
             </div>
-            <p className="text-xs font-bold uppercase tracking-wider text-[#1E40AF]">Affiliation</p>
-            <p className="text-xs text-[#475569] max-w-[140px] mt-0.5">{educationData.affiliation}</p>
+            <p className="text-[11px] font-bold uppercase tracking-wider text-[#1E40AF]">Academic Standing</p>
+            <p className="text-xl sm:text-2xl font-black text-[#1E3A8A] mt-0.5">{educationData.overallCGPA} CGPA</p>
+            <p className="text-[11px] text-[#475569] font-medium mt-0.5">{educationData.status}</p>
           </div>
         </div>
       </div>
@@ -129,7 +130,7 @@ export function EducationRoom({ onBackToHallway, onNavigateRoom }) {
               {/* Timeline marker node */}
               <div className="absolute -left-[31px] sm:-left-[39px] top-1 w-4 h-4 rounded-full bg-[#3B82F6] border-2 border-white shadow-xs group-hover:scale-125 transition-transform" />
               <div className="p-4 rounded-xl bg-white border border-[#3C3630]/25 shadow-xs hover:border-[#3B82F6] transition-colors">
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5">
                   <h3 className="text-sm sm:text-base font-bold text-[#1E3A8A]">
                     {item.title}
                   </h3>
@@ -137,7 +138,14 @@ export function EducationRoom({ onBackToHallway, onNavigateRoom }) {
                     {item.year}
                   </span>
                 </div>
-                <p className="text-xs text-[#64748B] mb-2">{item.institution}</p>
+                <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <p className="text-xs text-[#64748B] font-medium">{item.institution}</p>
+                  {item.grade && (
+                    <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534] border border-[#86EFAC]">
+                      {item.grade}
+                    </span>
+                  )}
+                </div>
                 <p className="text-xs sm:text-sm text-[#334155] leading-relaxed">
                   {item.description}
                 </p>

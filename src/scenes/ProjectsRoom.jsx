@@ -66,7 +66,7 @@ export function ProjectsRoom({ onBackToHallway, onNavigateRoom }) {
               Featured Systems & Inventions
             </h1>
             <p className="text-base sm:text-lg text-[#C2410C] font-semibold mt-1">
-              ShopSense • AI Finance Coach • System Utilities
+              ShopSense • Career Ladder (Gemini AI) • 250+ LeetCode Vault
             </p>
             <p className="text-xs sm:text-sm text-[#9A3412] mt-3 leading-relaxed">
               Every project here was born from an authentic problem: transforming overwhelming feedback streams into clear intelligence, and bringing clarity to everyday workflows.

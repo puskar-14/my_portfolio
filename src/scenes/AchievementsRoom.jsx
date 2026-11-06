@@ -7,11 +7,12 @@ import {
   Flame, 
   Zap, 
   ShieldCheck, 
-  BookOpen, 
   ArrowLeft, 
   CheckCircle2, 
   Sparkles, 
-  TrendingUp 
+  TrendingUp,
+  Briefcase,
+  Calendar
 } from 'lucide-react';
 import { soundManager } from '../utils/audio';
 
@@ -73,13 +74,13 @@ export function AchievementsRoom({ onBackToHallway, onNavigateRoom }) {
               <Trophy className="w-3.5 h-3.5 text-[#059669]" /> The Milestone Summit & Trophy Pedestal
             </div>
             <h1 className="text-2xl sm:text-4xl font-extrabold text-[#064E3B] tracking-tight">
-              Competitive Milestones & Honors
+              Virtual Internships & Milestones
             </h1>
             <p className="text-base sm:text-lg text-[#047857] font-semibold mt-1">
-              250+ LeetCode • 90+ CodeChef • Hackathons & Certifications
+              Infosys Springboard • ServiceNow University • 250+ LeetCode
             </p>
             <p className="text-xs sm:text-sm text-[#065F46] mt-3 leading-relaxed">
-              Every badge is proof of discipline: consistent practice, algorithmic optimization, and resilience under timed constraints.
+              Every milestone is proof of continuous growth: practical industry software development, algorithmic discipline, and enterprise cloud automation.
             </p>
           </div>
 
@@ -88,7 +89,7 @@ export function AchievementsRoom({ onBackToHallway, onNavigateRoom }) {
             className="p-4 rounded-xl bg-white border-2 border-[#3C3630] text-center shrink-0 sketch-btn hover:bg-[#C4EED0] transition-colors cursor-pointer"
           >
             <div className="w-12 h-12 rounded-full bg-[#C4EED0] border border-[#3C3630] flex items-center justify-center mx-auto mb-2 text-[#047857]">
-              <Sparkles className="w-6 h-6 animate-spin-slow" />
+              <Sparkles className="w-6 h-6" />
             </div>
             <p className="text-xs font-bold uppercase tracking-wider text-[#065F46]">
               {celebrated ? "🎉 Confetti Launched!" : "Celebrate Milestones"}
@@ -98,50 +99,139 @@ export function AchievementsRoom({ onBackToHallway, onNavigateRoom }) {
         </div>
       </div>
 
-      {/* Primary Competitive Statistics Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
-        {achievementsData.codingStats.map((stat, idx) => (
-          <div
-            key={idx}
-            className="p-6 rounded-2xl bg-white border-2 border-[#3C3630] sketch-card relative overflow-hidden flex flex-col justify-between"
-          >
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <span
-                  className="px-2.5 py-0.5 text-xs font-bold rounded-full border border-[#3C3630]"
-                  style={{ backgroundColor: stat.pastel }}
-                >
-                  {stat.badge}
-                </span>
-                <span className="text-xs font-mono text-[#059669] flex items-center gap-1 font-bold">
-                  <TrendingUp className="w-3.5 h-3.5" /> Verified
-                </span>
+      {/* SECTION 1: Virtual Internships Showcase */}
+      <div className="my-8">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-sm uppercase tracking-wider font-bold text-[#065F46] flex items-center gap-2">
+            <Briefcase className="w-4 h-4 text-[#059669]" /> Industry Virtual Internships
+          </h3>
+          <span className="text-xs font-mono text-[#059669] font-bold">2 Hands-On Programs</span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {achievementsData.internships.map((internship, idx) => (
+            <div
+              key={idx}
+              className="p-6 rounded-2xl bg-white border-2 border-[#3C3630] sketch-card relative overflow-hidden flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span
+                    className="px-2.5 py-0.5 text-xs font-bold rounded-full border border-[#3C3630]"
+                    style={{ backgroundColor: internship.pastel, color: '#1E293B' }}
+                  >
+                    {internship.badge}
+                  </span>
+                  <span className="text-xs font-mono text-[#64748B] flex items-center gap-1 font-semibold">
+                    <Calendar className="w-3.5 h-3.5" /> {internship.period}
+                  </span>
+                </div>
+
+                <h4 className="text-lg font-bold text-[#1E293B]">{internship.company}</h4>
+                <p className="text-xs font-bold text-[#059669] mb-3">{internship.role}</p>
+
+                <div className="space-y-2 mb-4">
+                  {internship.highlights.map((h, hIdx) => (
+                    <div key={hIdx} className="flex items-start gap-2 text-xs text-[#334155] leading-relaxed">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#059669] mt-1.5 shrink-0" />
+                      <span>{h}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <h3 className="text-base font-bold text-[#1E293B]">{stat.platform}</h3>
-              <p className="text-3xl sm:text-4xl font-black text-[#047857] my-2">
-                {stat.count}
-              </p>
-              <p className="text-xs font-bold uppercase tracking-wider text-[#065F46] mb-2">
-                {stat.label}
-              </p>
-              <p className="text-xs text-[#475569] leading-relaxed">
-                {stat.description}
-              </p>
+              <div className="pt-3 border-t border-[#F1F5F9] flex items-center justify-between text-xs font-semibold text-[#059669]">
+                <span>{internship.type}</span>
+                <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
+              </div>
             </div>
-
-            <div className="mt-4 pt-3 border-t border-[#F1F5F9] flex items-center justify-between text-xs font-semibold text-[#059669]">
-              <span>Problem Solving Track</span>
-              <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
-      {/* Trophy Pedestals */}
+      {/* SECTION 2: Primary Competitive Statistics Cards */}
+      <div className="my-8">
+        <h3 className="text-sm uppercase tracking-wider font-bold text-[#065F46] mb-4 flex items-center gap-2">
+          <TrendingUp className="w-4 h-4 text-[#059669]" /> Problem Solving & Academic Track Record
+        </h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {achievementsData.codingStats.map((stat, idx) => (
+            <div
+              key={idx}
+              className="p-6 rounded-2xl bg-white border-2 border-[#3C3630] sketch-card relative overflow-hidden flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span
+                    className="px-2.5 py-0.5 text-xs font-bold rounded-full border border-[#3C3630]"
+                    style={{ backgroundColor: stat.pastel }}
+                  >
+                    {stat.badge}
+                  </span>
+                  <span className="text-xs font-mono text-[#059669] flex items-center gap-1 font-bold">
+                    <TrendingUp className="w-3.5 h-3.5" /> Verified
+                  </span>
+                </div>
+
+                <h3 className="text-base font-bold text-[#1E293B]">{stat.platform}</h3>
+                <p className="text-3xl sm:text-4xl font-black text-[#047857] my-2">
+                  {stat.count}
+                </p>
+                <p className="text-xs font-bold uppercase tracking-wider text-[#065F46] mb-2">
+                  {stat.label}
+                </p>
+                <p className="text-xs text-[#475569] leading-relaxed">
+                  {stat.description}
+                </p>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-[#F1F5F9] flex items-center justify-between text-xs font-semibold text-[#059669]">
+                <span>Track Record</span>
+                <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* SECTION 3: Industry Certifications (5 Credentials) */}
+      <div className="my-8">
+        <h3 className="text-sm uppercase tracking-wider font-bold text-[#065F46] mb-4 flex items-center gap-2">
+          <Award className="w-4 h-4 text-[#059669]" /> Verified Technical Certifications (5)
+        </h3>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {achievementsData.certificationsList.map((cert, idx) => (
+            <div
+              key={idx}
+              className="p-5 rounded-2xl bg-white border border-[#3C3630]/25 sketch-card flex flex-col justify-between hover:border-[#10B981] transition-colors"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-[#ECFDF5] text-[#065F46] border border-[#A7F3D0]">
+                    {cert.category}
+                  </span>
+                  <span className="text-xs font-mono text-[#94A3B8]">{cert.date}</span>
+                </div>
+
+                <h4 className="text-sm font-bold text-[#1E293B] mb-1">{cert.title}</h4>
+                <p className="text-xs font-semibold text-[#059669] mb-2">{cert.issuer}</p>
+                <p className="text-xs text-[#475569] leading-relaxed">{cert.details}</p>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-[#F1F5F9] flex items-center gap-1.5 text-[11px] text-[#10B981] font-semibold">
+                <CheckCircle2 className="w-3.5 h-3.5 shrink-0" /> Verified Credential
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* SECTION 4: Trophy Pedestals */}
       <div className="mb-8">
         <h3 className="text-sm uppercase tracking-wider font-bold text-[#065F46] mb-4 flex items-center gap-2">
-          <Award className="w-4 h-4" /> Personal Trophy Case
+          <Trophy className="w-4 h-4" /> Personal Trophy Case
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {achievementsData.trophies.map((trophy, idx) => (
@@ -151,10 +241,10 @@ export function AchievementsRoom({ onBackToHallway, onNavigateRoom }) {
               className="p-4 rounded-xl bg-white border border-[#3C3630]/25 text-center sketch-card cursor-pointer hover:border-[#10B981]"
             >
               <div className="w-10 h-10 rounded-full bg-[#ECFDF5] border border-[#A7F3D0] flex items-center justify-center mx-auto mb-2 text-[#059669]">
-                {idx === 0 && <Flame className="w-5 h-5 text-[#EA580C]" />}
+                {idx === 0 && <ShieldCheck className="w-5 h-5 text-[#059669]" />}
                 {idx === 1 && <Zap className="w-5 h-5 text-[#8B5CF6]" />}
-                {idx === 2 && <ShieldCheck className="w-5 h-5 text-[#059669]" />}
-                {idx === 3 && <BookOpen className="w-5 h-5 text-[#3B82F6]" />}
+                {idx === 2 && <Award className="w-5 h-5 text-[#3B82F6]" />}
+                {idx === 3 && <Flame className="w-5 h-5 text-[#EA580C]" />}
               </div>
               <h4 className="text-xs font-bold text-[#1E293B]">{trophy.name}</h4>
               <p className="text-[11px] text-[#64748B] mt-1">{trophy.desc}</p>
@@ -163,34 +253,36 @@ export function AchievementsRoom({ onBackToHallway, onNavigateRoom }) {
         </div>
       </div>
 
-      {/* Milestone Boards */}
-      <div className="p-6 rounded-2xl bg-white border border-[#3C3630]/25 shadow-xs">
-        <h3 className="text-sm uppercase tracking-wider font-bold text-[#065F46] mb-4">
-          Milestone Timeline & Hackathons
-        </h3>
-        <div className="space-y-4">
-          {achievementsData.milestones.map((m, idx) => (
-            <div
-              key={idx}
-              className="p-3.5 rounded-xl bg-[#FAF7F2] border border-[#3C3630]/15 flex flex-col sm:flex-row sm:items-center justify-between gap-2"
-            >
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#059669]" />
-                  <h4 className="text-xs sm:text-sm font-bold text-[#1E293B]">{m.title}</h4>
+      {/* SECTION 5: Milestone Timeline */}
+      {achievementsData.milestones && (
+        <div className="p-6 rounded-2xl bg-white border border-[#3C3630]/25 shadow-xs">
+          <h3 className="text-sm uppercase tracking-wider font-bold text-[#065F46] mb-4">
+            Milestone Timeline & Key Accomplishments
+          </h3>
+          <div className="space-y-4">
+            {achievementsData.milestones.map((m, idx) => (
+              <div
+                key={idx}
+                className="p-3.5 rounded-xl bg-[#FAF7F2] border border-[#3C3630]/15 flex flex-col sm:flex-row sm:items-center justify-between gap-2"
+              >
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#059669]" />
+                    <h4 className="text-xs sm:text-sm font-bold text-[#1E293B]">{m.title}</h4>
+                  </div>
+                  <p className="text-xs text-[#64748B] mt-1 pl-4">{m.details}</p>
                 </div>
-                <p className="text-xs text-[#64748B] mt-1 pl-4">{m.details}</p>
+                <div className="flex items-center gap-2 pl-4 sm:pl-0 shrink-0">
+                  <span className="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-white border border-[#E2E8F0] text-[#065F46]">
+                    {m.category}
+                  </span>
+                  <span className="text-xs font-mono text-[#94A3B8]">{m.date}</span>
+                </div>
               </div>
-              <div className="flex items-center gap-2 pl-4 sm:pl-0 shrink-0">
-                <span className="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-white border border-[#E2E8F0] text-[#065F46]">
-                  {m.category}
-                </span>
-                <span className="text-xs font-mono text-[#94A3B8]">{m.date}</span>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

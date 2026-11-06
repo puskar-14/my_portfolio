@@ -1,4 +1,32 @@
 export const achievementsData = {
+  internships: [
+    {
+      company: "Infosys Springboard",
+      role: "Software Development Intern",
+      period: "Jul 2026 – Present",
+      type: "Virtual Internship",
+      badge: "Industry Internship",
+      accent: "#3B82F6",
+      pastel: "#DBEAFE",
+      highlights: [
+        "Selected for a 2-month virtual internship focused on practical software development and industry projects.",
+        "Developing ShopSense, a full-stack multi-vendor e-commerce analytics platform with AI-powered features (FastAPI, React, PostgreSQL, Pandas, AI/ML APIs)."
+      ]
+    },
+    {
+      company: "ServiceNow University",
+      role: "Virtual Intern",
+      period: "May 2026",
+      type: "Virtual Internship Program",
+      badge: "Cloud & Automation",
+      accent: "#10B981",
+      pastel: "#D1FAE5",
+      highlights: [
+        "Completed a virtual internship covering ServiceNow Administration, Flows, Reports, ATF (Automated Test Framework), and Agentic AI.",
+        "Gained practical exposure to the ServiceNow enterprise platform and prepared for the Certified System Administrator (CSA) examination."
+      ]
+    }
+  ],
   codingStats: [
     {
       platform: "LeetCode",
@@ -12,59 +40,96 @@ export const achievementsData = {
       link: "https://leetcode.com"
     },
     {
-      platform: "CodeChef",
-      count: "90+",
-      label: "Contest Problems",
-      description: "Competitive programming contests testing speed, mathematical reasoning, and edge-case resilience.",
-      badge: "Rated Competitor",
-      accent: "#8B5CF6",
-      pastel: "#E8DDFF",
-      icon: "Award",
-      link: "https://codechef.com"
-    },
-    {
-      platform: "Academic Consistency",
-      count: "Top Tier",
-      label: "B.Tech CSE Track",
-      description: "College of Engineering & Management, Kolaghat. Strong academic foundation across core CS curriculum.",
-      badge: "Undergraduate",
+      platform: "B.Tech Academics",
+      count: "7.873",
+      label: "Overall CGPA",
+      description: "College of Engineering and Management Kolaghat, West Bengal. Strong academic standing in 7th Semester CSE.",
+      badge: "Final Year CSE",
       accent: "#38A169",
       pastel: "#D4F4DD",
       icon: "GraduationCap",
       link: null
+    },
+    {
+      platform: "Certifications",
+      count: "5+",
+      label: "Industry Credentials",
+      description: "Google Cloud Gen AI 2.0, Postman API Student Expert, IBM SkillBuild, CSRBox AI Agentic Builder.",
+      badge: "Verified Credentials",
+      accent: "#8B5CF6",
+      pastel: "#E8DDFF",
+      icon: "Award",
+      link: null
     }
   ],
-  milestones: [
+  certificationsList: [
     {
-      title: "250+ LeetCode Milestone",
-      date: "Ongoing",
-      category: "Problem Solving",
-      details: "Solved 250+ algorithmic questions demonstrating deep mastery of time and space complexity tradeoffs in Java and Python."
+      title: "Google Cloud Gen AI Academy 2.0",
+      issuer: "Google Cloud",
+      date: "2026",
+      category: "Cloud & GenAI",
+      details: "Comprehensive certifications across AI/ML, Cloud Security, DevOps, Networking, and Serverless Computing architectures."
     },
     {
-      title: "90+ CodeChef Contests & Challenges",
-      date: "Ongoing",
-      category: "Competitive Programming",
-      details: "Regular participant in Starters and Cook-Off rounds, tackling problems under timed pressure and optimizing execution constraints."
+      title: "Postman API Student Expert Certified",
+      issuer: "Postman",
+      date: "2026",
+      category: "API Engineering",
+      details: "Certified proficiency in REST API testing, collection generation, automated testing scripts, and API design principles."
     },
     {
-      title: "Departmental Coding & Hackathon Participation",
-      date: "2023 – 2024",
-      category: "Hackathon & Collaboration",
-      details: "Participated in college tech fest hackathons and programming competitions, building rapid prototypes and solving algorithmic challenges."
+      title: "IBM SkillBuild – Learner to Builder",
+      issuer: "IBM",
+      date: "2026",
+      category: "Enterprise Software",
+      details: "Professional certification covering software development fundamentals, cloud architecture, and agile technology building."
     },
     {
-      title: "Software Engineering & Backend Training",
-      date: "2023",
-      category: "Technical Certification",
-      details: "Completed intensive technical training covering relational database design with PostgreSQL, asynchronous backend APIs in Python, and full-stack React principles."
+      title: "CSRBox & IBM AI Agentic Builder Program",
+      issuer: "CSRBox & IBM",
+      date: "2026",
+      category: "Agentic AI",
+      details: "Certified for AI agent project development, multi-agent reasoning systems, and autonomous generative workflows."
+    },
+    {
+      title: "Industrial Training in Specialized Coding Program",
+      issuer: "PCS Global Pvt. Ltd.",
+      date: "Jan 2026",
+      category: "Industrial Training",
+      details: "Rigorous industrial software engineering training covering enterprise application design, clean code, and database modeling."
     }
   ],
   trophies: [
-    { name: "Algorithm Pioneer", desc: "250+ LeetCode Problems Solved", icon: "Flame" },
-    { name: "Code Speedster", desc: "90+ CodeChef Submissions", icon: "Zap" },
-    { name: "System Builder", desc: "Architected ShopSense End-to-End", icon: "ShieldCheck" },
-    { name: "Lifelong Learner", desc: "Final-Year B.Tech CSE Scholar", icon: "BookOpen" }
+    { name: "Infosys Intern", desc: "Software Development at Infosys Springboard", icon: "ShieldCheck" },
+    { name: "ServiceNow Intern", desc: "Agentic AI & Flows Virtual Internship", icon: "Zap" },
+    { name: "Postman API Expert", desc: "Certified Student API Expert", icon: "Award" },
+    { name: "Algorithm Solver", desc: "250+ LeetCode Problems Solved", icon: "Flame" }
   ],
-  narrative: "Trophies and milestones in software engineering aren't merely numbers—they represent hundreds of hours debugging edge cases, untangling graph traversals, and refusing to give up when an algorithm hits Time Limit Exceeded. Every submission was another stone laid on the path of engineering excellence."
+  milestones: [
+    {
+      title: "Infosys Springboard Virtual Internship",
+      details: "Developing ShopSense — multi-vendor AI analytics platform using FastAPI, React, PostgreSQL & Pandas.",
+      category: "Software Internship",
+      date: "Jul 2026 – Present"
+    },
+    {
+      title: "ServiceNow Virtual Internship",
+      details: "Completed ServiceNow Administration, Flows, Reports, Automated Test Framework (ATF) & Agentic AI.",
+      category: "Cloud & Automation",
+      date: "May 2026"
+    },
+    {
+      title: "250+ LeetCode Milestone",
+      details: "Consistently solved algorithmic problems across Arrays, Trees, Dynamic Programming and Graphs.",
+      category: "Algorithmic Practice",
+      date: "Ongoing"
+    },
+    {
+      title: "PCS Global Industrial Training",
+      details: "Rigorous specialized industrial software engineering training covering enterprise application design.",
+      category: "Industrial Training",
+      date: "Jan 2026"
+    }
+  ],
+  narrative: "From solving 250+ algorithmic problems on LeetCode to developing multi-vendor analytics platforms during my Infosys Springboard internship and exploring Agentic AI at ServiceNow, my journey is focused on creating reliable, scalable, and intelligent software systems."
 };

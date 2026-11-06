@@ -4,24 +4,26 @@ export const profileData = {
   domain: "Puskar.dev",
   tagline: "Code • Build • Grow",
   conceptHeadline: "Every Door Opens a Different Story.",
-  role: "Final-Year B.Tech CSE Student & Software Developer",
-  shortBio: "Passionate about building robust backend architectures, intelligent data-driven platforms, and delightful interactive software. Currently completing B.Tech in Computer Science & Engineering at College of Engineering & Management, Kolaghat.",
-  location: "West Bengal, India",
-  email: "puskar.cse.dev@gmail.com",
-  github: "https://github.com/Puskar-dev",
-  linkedin: "https://linkedin.com/in/puskar-kumar-prasad",
-  status: "Open to Full-Time Software Engineering & Backend Opportunities",
+  role: "B.Tech CSE Student (7th Sem) & Software / Backend Developer",
+  objective: "B.Tech CSE student skilled in Java, Python, React, FastAPI, and AI-powered web development, seeking opportunities in software development and backend engineering.",
+  shortBio: "B.Tech CSE undergraduate with practical internship experience at Infosys Springboard and ServiceNow. Skilled in Java, Python, React, FastAPI, Gemini API, and PostgreSQL.",
+  location: "Kharagpur, West Bengal, India",
+  phone: "+91 9046758890",
+  email: "puskarlaptop2005@gmail.com",
+  github: "https://github.com/puskar-14",
+  linkedin: "https://www.linkedin.com/in/puskar-kumar-prasad/",
+  status: "Open to Software Development & Backend Engineering Roles",
   stats: [
-    { label: "LeetCode Solved", value: "250+", detail: "DSA & Problem Solving" },
-    { label: "CodeChef Solved", value: "90+", detail: "Competitive Contests" },
-    { label: "B.Tech Journey", value: "Final Year", detail: "Computer Science & Engg." },
-    { label: "Core Technologies", value: "9+", detail: "Java, Python, FastAPI, React & SQL" },
+    { label: "B.Tech CGPA", value: "7.873", detail: "College of Engg. & Mgmt. Kolaghat" },
+    { label: "Virtual Internships", value: "2", detail: "Infosys Springboard & ServiceNow" },
+    { label: "LeetCode Solved", value: "250+", detail: "Data Structures & Algorithms" },
+    { label: "Core Projects", value: "ShopSense", detail: "AI Analytics & Multi-Vendor Hub" }
   ],
   interests: [
-    "Software Engineering",
-    "Backend & System Design",
-    "Artificial Intelligence & ML",
-    "Data Structures & Algorithms",
-    "Interactive Web Experiences"
+    "Backend Engineering (FastAPI, REST APIs)",
+    "AI-Powered Web Development (Gemini API, AI/ML APIs)",
+    "Full-Stack Development (React, Python, PostgreSQL)",
+    "Data Analysis & Pipelines (Pandas, SQLAlchemy)",
+    "Cloud & DevOps Fundamentals"
   ]
 };
