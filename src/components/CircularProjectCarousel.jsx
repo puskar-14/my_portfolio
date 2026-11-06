@@ -16,7 +16,8 @@ export function CircularProjectCarousel({ projects = [], onSelectProject }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
-  const [isAutoSpin, setIsAutoSpin] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isAutoSpin, setIsAutoSpin] = useState(true);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
   const dragStartRef = useRef(0);
   const currentDragRef = useRef(0);
@@ -31,14 +32,14 @@ export function CircularProjectCarousel({ projects = [], onSelectProject }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Optional auto-spin interval
+  // Continuous auto-spin (pauses on card hover or drag)
   useEffect(() => {
-    if (!isAutoSpin || isDragging) return;
+    if (!isAutoSpin || isDragging || isHovered) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % total);
-    }, 4500);
+    }, 3600);
     return () => clearInterval(interval);
-  }, [isAutoSpin, isDragging, total]);
+  }, [isAutoSpin, isDragging, isHovered, total]);
 
   const isMobile = windowWidth < 640;
   const isTablet = windowWidth < 1024;
@@ -116,13 +117,19 @@ export function CircularProjectCarousel({ projects = [], onSelectProject }) {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setIsAutoSpin(!isAutoSpin)}
-            className={`px-2.5 py-1.5 rounded-lg border border-[#3C3630] text-xs font-semibold flex items-center gap-1 sketch-btn transition-colors cursor-pointer ${
+            className={`px-3 py-1.5 rounded-xl border-2 border-[#3C3630] text-xs font-bold flex items-center gap-1.5 sketch-btn transition-colors cursor-pointer ${
               isAutoSpin ? 'bg-[#FFDBC2] text-[#7C2D12]' : 'bg-white text-[#70675D] hover:bg-[#FAF7F2]'
             }`}
             title="Toggle Continuous Turntable Rotation"
           >
-            <RotateCw className={`w-3.5 h-3.5 ${isAutoSpin ? 'animate-spin' : ''}`} />
-            <span className="hidden sm:inline">{isAutoSpin ? 'Auto-Spin On' : 'Auto-Spin'}</span>
+            <RotateCw className={`w-3.5 h-3.5 ${isAutoSpin && !isHovered ? 'animate-spin' : ''}`} />
+            <span>
+              {isAutoSpin
+                ? isHovered
+                  ? 'Auto-Spin: Paused'
+                  : 'Auto-Spin: ON'
+                : 'Auto-Spin: OFF'}
+            </span>
           </button>
 
           <button
@@ -146,6 +153,8 @@ export function CircularProjectCarousel({ projects = [], onSelectProject }) {
       {/* 3D Circular Standway Stage Container */}
       <div
         className="relative w-full h-[520px] sm:h-[560px] flex items-center justify-center cursor-grab active:cursor-grabbing touch-none"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
