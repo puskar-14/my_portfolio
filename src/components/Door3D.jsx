@@ -75,7 +75,7 @@ export function Door3D({
       {/* Warm Ambient Glow / Spotlight around Door */}
       <pointLight
         position={[0, 2.5, 0.9]}
-        color={door.color}
+        color={door.lightColor || door.color}
         intensity={activeHover ? 2.2 : 0.8}
         distance={4.5}
       />
@@ -84,7 +84,7 @@ export function Door3D({
       <mesh position={[0, 0.015, 0.8]} rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[1.5, 0.9]} />
         <meshBasicMaterial
-          color={activeHover ? door.color : '#E8DFD3'}
+          color={activeHover ? (door.lightColor || door.color) : '#E8DFD3'}
           transparent
           opacity={0.8}
         />
@@ -115,8 +115,8 @@ export function Door3D({
           <boxGeometry args={[1.36, 3.0, 0.1]} />
           <meshToonMaterial
             color={activeHover ? door.color : door.color}
-            emissive={activeHover ? door.color : '#000000'}
-            emissiveIntensity={activeHover ? 0.25 : 0}
+            emissive={activeHover ? (door.lightColor || door.color) : '#000000'}
+            emissiveIntensity={activeHover ? 0.35 : 0}
           />
         </mesh>
 
@@ -125,6 +125,19 @@ export function Door3D({
           <boxGeometry args={[0.95, 1.1, 0.02]} />
           <meshToonMaterial color={door.badgeBg || '#FFFFFF'} />
         </mesh>
+
+        {/* Night Sky Star Insignia for Door 04 */}
+        {door.id === 'achievements' && (
+          <Text
+            position={[0.68, 1.95, 0.075]}
+            fontSize={0.24}
+            color="#FDE047"
+            anchorX="center"
+            anchorY="middle"
+          >
+            ★
+          </Text>
+        )}
 
         {/* Lower Inset Panel */}
         <mesh position={[0.68, 0.95, 0.055]}>

@@ -49,16 +49,17 @@ export const doorsData = [
     id: "achievements",
     number: "04",
     title: "Achievements",
-    subtitle: "Starry Milestones, 250+ LeetCode & Internships",
-    roomName: "The Starlight Hall of Milestones",
-    color: "#FDE047", // Radiant Star Gold
-    borderHover: "#F59E0B",
-    textAccent: "#B45309",
-    badgeBg: "#FEF9C3",
+    subtitle: "Night Sky Constellations, 250+ LeetCode & Internships",
+    roomName: "The Night Sky Observatory",
+    color: "#181D3B", // Deep Midnight Indigo Night Sky
+    lightColor: "#FDE047", // Radiant Starlight Gold
+    borderHover: "#FDE047",
+    textAccent: "#FDE047",
+    badgeBg: "#0B0E1B", // Cosmic Obsidian Inset
     side: "right",
     zPos: -24,
     icon: "Star",
-    summary: "Starry milestones: Infosys & ServiceNow virtual internships, 250+ LeetCode solved, and 5 verified star certifications."
+    summary: "A star-filled night sky of milestones: Infosys & ServiceNow internships, 250+ LeetCode, and 5 verified technical constellations."
   },
   {
     id: "contact",
