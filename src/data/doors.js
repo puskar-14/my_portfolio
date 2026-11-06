@@ -5,9 +5,9 @@ export const doorsData = [
     title: "Education",
     subtitle: "Academic journey & engineering foundations at CEMK",
     roomName: "The Scholar's Courtyard",
-    color: "#C2DBFE", // Pastel Blue
-    borderHover: "#60A5FA",
-    textAccent: "#2563EB",
+    color: "#70B3FE", // Vibrant Sky Blue
+    borderHover: "#3B82F6",
+    textAccent: "#1D4ED8",
     badgeBg: "#DBEAFE",
     side: "left",
     zPos: -6,
@@ -20,9 +20,9 @@ export const doorsData = [
     title: "Skills",
     subtitle: "Technical arsenal across backend, frontend & data",
     roomName: "The Hacker's Atelier",
-    color: "#E0D4FC", // Pastel Purple / Lavender
-    borderHover: "#A78BFA",
-    textAccent: "#7C3AED",
+    color: "#BFA8FA", // Vibrant Royal Lavender
+    borderHover: "#8B5CF6",
+    textAccent: "#6D28D9",
     badgeBg: "#EDE9FE",
     side: "right",
     zPos: -12,
@@ -35,9 +35,9 @@ export const doorsData = [
     title: "Projects",
     subtitle: "ShopSense, AI Finance Health Coach & inventions",
     roomName: "The Invention Workshop",
-    color: "#FFDBC2", // Pastel Peach / Orange (Most visually prominent!)
-    borderHover: "#FB923C",
-    textAccent: "#EA580C",
+    color: "#FFA875", // Juicy Coral Peach (Centerpiece!)
+    borderHover: "#F97316",
+    textAccent: "#C2410C",
     badgeBg: "#FFEDD5",
     side: "left",
     zPos: -18,
@@ -51,9 +51,9 @@ export const doorsData = [
     title: "Achievements",
     subtitle: "250+ LeetCode, 90+ CodeChef & technical milestones",
     roomName: "The Milestone Summit",
-    color: "#C4EED0", // Pastel Mint Green
-    borderHover: "#34D399",
-    textAccent: "#059669",
+    color: "#6DE0A6", // Fresh Mint Emerald
+    borderHover: "#10B981",
+    textAccent: "#047857",
     badgeBg: "#D1FAE5",
     side: "right",
     zPos: -24,
@@ -66,9 +66,9 @@ export const doorsData = [
     title: "Contact",
     subtitle: "Direct inquiries, mailbox, socials & resume download",
     roomName: "The Cozy Post Office",
-    color: "#FFD4E2", // Pastel Pink
-    borderHover: "#F472B6",
-    textAccent: "#DB2777",
+    color: "#FFA6C9", // Cheerful Bubblegum Pink
+    borderHover: "#EC4899",
+    textAccent: "#BE123C",
     badgeBg: "#FCE7F3",
     side: "left",
     zPos: -30,
@@ -81,9 +81,9 @@ export const doorsData = [
     title: "The Next Chapter",
     subtitle: "Future horizons, autonomous AI systems & aspirations",
     roomName: "The Starlit Observatory",
-    color: "#FEE49B", // Mysterious Warm Gold
-    borderHover: "#FBBF24",
-    textAccent: "#D97706",
+    color: "#FED34C", // Radiant Glowing Amber Gold
+    borderHover: "#F59E0B",
+    textAccent: "#B45309",
     badgeBg: "#FEF3C7",
     side: "end",
     zPos: -36,
