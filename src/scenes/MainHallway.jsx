@@ -6,6 +6,12 @@ import { Door3D } from '../components/Door3D';
 import {
   PottedPlant,
   Bookshelf,
+  FloatingWallShelf,
+  WallWainscotPanel,
+  ArchitecturalPilaster,
+  WallSconce,
+  PastelBuntingGarland,
+  RoundGildedMirror,
   WallFrame,
   HangingLamp,
   SunlightWindow,
@@ -252,9 +258,74 @@ export function MainHallway({
         />
       ))}
 
-      {/* Cozy Hallway Decorative Elements & Furniture */}
-      {/* Bookshelves in alcoves */}
-      <Bookshelf position={[-1.9, 0, -1] } rotation={[0, Math.PI / 2, 0]} />
+      {/* ========================================================= */}
+      {/* ARCHITECTURAL WALL DESIGNS: PILASTERS & WAINSCOT PANELS   */}
+      {/* ========================================================= */}
+      {/* Classical Architectural Wall Pilasters along both sides */}
+      {[0, -5, -10, -15, -20, -25, -30, -35].map((z, idx) => (
+        <group key={`pilasters-${idx}`}>
+          {/* Left Wall Pilaster */}
+          <ArchitecturalPilaster position={[-hallwayWidth / 2 + 0.02, 0, z]} rotation={[0, Math.PI / 2, 0]} />
+          {/* Right Wall Pilaster */}
+          <ArchitecturalPilaster position={[hallwayWidth / 2 - 0.02, 0, z]} rotation={[0, -Math.PI / 2, 0]} />
+        </group>
+      ))}
+
+      {/* Raised Wainscoting Boiserie Panels on Lower Lavender Wall */}
+      {/* Left Wall Panels */}
+      {[-1.5, -9, -13.5, -21.5, -26.5, -34].map((z, idx) => (
+        <WallWainscotPanel
+          key={`wainscot-left-${idx}`}
+          position={[-hallwayWidth / 2 + 0.02, 0.75, z]}
+          rotation={[0, Math.PI / 2, 0]}
+        />
+      ))}
+      {/* Right Wall Panels */}
+      {[-1.5, -4.5, -15, -19.5, -27.5, -34].map((z, idx) => (
+        <WallWainscotPanel
+          key={`wainscot-right-${idx}`}
+          position={[hallwayWidth / 2 - 0.02, 0.75, z]}
+          rotation={[0, -Math.PI / 2, 0]}
+        />
+      ))}
+      {/* End Wall Panels flanking The Next Chapter Door */}
+      <WallWainscotPanel position={[-1.4, 0.75, -36.56]} rotation={[0, 0, 0]} />
+      <WallWainscotPanel position={[1.4, 0.75, -36.56]} rotation={[0, 0, 0]} />
+
+      {/* Ornamental Brass Wall Sconces with Warm Tulip Shades */}
+      {/* Left Wall Sconces */}
+      {[-2.5, -8.5, -16.8, -22.8, -28.8].map((z, idx) => (
+        <WallSconce
+          key={`sconce-left-${idx}`}
+          position={[-hallwayWidth / 2 + 0.02, 2.65, z]}
+          rotation={[0, Math.PI / 2, 0]}
+        />
+      ))}
+      {/* Right Wall Sconces */}
+      {[-2.5, -8.5, -14.2, -22.8, -28.5].map((z, idx) => (
+        <WallSconce
+          key={`sconce-right-${idx}`}
+          position={[hallwayWidth / 2 - 0.02, 2.65, z]}
+          rotation={[0, -Math.PI / 2, 0]}
+        />
+      ))}
+
+      {/* Whimsical Storybook Pastel Bunting Garlands Overhead */}
+      {[-4.5, -14.5, -24.5, -34.5].map((z, idx) => (
+        <PastelBuntingGarland key={`bunting-${idx}`} position={[0, 0, z]} />
+      ))}
+
+      {/* Round Gilded Baroque Sunburst Mirrors */}
+      <RoundGildedMirror position={[hallwayWidth / 2 - 0.02, 2.65, -16.5]} rotation={[0, -Math.PI / 2, 0]} />
+      <RoundGildedMirror position={[-hallwayWidth / 2 + 0.02, 2.65, -22.5]} rotation={[0, Math.PI / 2, 0]} />
+
+      {/* Floating Wall Shelves with Succulents, Alarm Clocks & Trinkets */}
+      <FloatingWallShelf position={[-hallwayWidth / 2 + 0.03, 1.85, -11]} rotation={[0, Math.PI / 2, 0]} />
+      <FloatingWallShelf position={[hallwayWidth / 2 - 0.03, 1.85, -4.2]} rotation={[0, -Math.PI / 2, 0]} />
+      <FloatingWallShelf position={[hallwayWidth / 2 - 0.03, 1.85, -29]} rotation={[0, -Math.PI / 2, 0]} />
+
+      {/* Cozy Hallway Furniture & Richly Decorated Bookshelves */}
+      <Bookshelf position={[-1.9, 0, -1]} rotation={[0, Math.PI / 2, 0]} />
       <Bookshelf position={[1.9, 0, -18]} rotation={[0, -Math.PI / 2, 0]} />
       <Bookshelf position={[-1.9, 0, -24]} rotation={[0, Math.PI / 2, 0]} />
 
@@ -267,7 +338,7 @@ export function MainHallway({
       <PottedPlant position={[-1.5, 0, -35.8]} scale={1.15} />
       <PottedPlant position={[1.5, 0, -35.8]} scale={1.15} />
 
-      {/* Framed Wall Art between doors */}
+      {/* Framed Wall Art with Hand-Drawn Motifs between doors */}
       <WallFrame position={[2.15, 2.5, -7]} rotation={[0, -Math.PI / 2, 0]} title="Code" color="#C2DBFE" />
       <WallFrame position={[-2.15, 2.5, -14]} rotation={[0, Math.PI / 2, 0]} title="Create" color="#E0D4FC" />
       <WallFrame position={[2.15, 2.5, -20]} rotation={[0, -Math.PI / 2, 0]} title="Ship" color="#FFDBC2" />
