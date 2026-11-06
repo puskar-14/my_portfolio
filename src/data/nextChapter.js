@@ -1,36 +1,36 @@
 export const nextChapterData = {
   title: "The Next Chapter",
-  subtitle: "Every finished chapter is merely the prelude to the next great venture.",
-  quote: "“The best way to predict the future is to write its algorithms.”",
+  subtitle: "Every finished project is the prelude to architecting scalable, intelligent systems.",
+  quote: "“The best way to predict the future is to write its algorithms.” — Alan Kay",
   upcomingPillars: [
     {
-      title: "Full-Time Software Engineering Roles",
-      focus: "High-Impact Product Engineering",
-      description: "Seeking software development and backend engineering roles where I can contribute to mission-critical systems, collaborate with senior engineering teams, and deliver reliable customer value.",
-      badge: "Immediate Goal",
+      title: "Full-Time Backend & Software Engineering Roles",
+      focus: "FastAPI, Java, Python, PostgreSQL & Scalable APIs",
+      description: "Actively seeking 2025/2026 graduate roles in software development and backend engineering. Bringing production experience from my Infosys Springboard internship (developing ShopSense's multi-vendor architecture) and ServiceNow virtual internship, backed by 250+ LeetCode DSA problem solutions.",
+      badge: "Immediate Career Target",
       accent: "#D97706"
     },
     {
-      title: "Autonomous AI Agents & Tool-Calling Systems",
-      focus: "Agentic Architectures & LLM Reasoning",
-      description: "Exploring multi-agent workflows, autonomous coding agents, retrieval-augmented generation (RAG), and deterministic tool invocation layered on modern LLM infrastructure.",
-      badge: "Active Research",
+      title: "Productionizing Agentic AI & Tool-Calling Systems",
+      focus: "Gemini API, Autonomous Workflows & RAG",
+      description: "Building on certifications from IBM & CSRBox AI Agentic Builder and Google Cloud Gen AI Academy 2.0, advancing beyond prototypes like Career Ladder and ReturnShield AI into resilient multi-agent orchestration, deterministic tool-calling, and enterprise workflows.",
+      badge: "AI Specialization",
       accent: "#8B5CF6"
     },
     {
-      title: "Distributed Backend & Cloud Scalability",
-      focus: "Microservices & Message Queues",
-      description: "Deepening practical expertise in event-driven architectures (Kafka/RabbitMQ), Docker containerization, Kubernetes orchestration, and database sharding at scale.",
-      badge: "Deepening Skill",
+      title: "Distributed Cloud Infrastructure & Microservices",
+      focus: "Postman Certified • Google Cloud • Distributed DBs",
+      description: "Deepening practical expertise in low-latency RESTful API design, asynchronous SQLAlchemy pipelines, Redis caching, Docker containerization, and Automated Test Framework (ATF) patterns from ServiceNow to ensure high service reliability.",
+      badge: "Cloud & Reliability",
       accent: "#2563EB"
     },
     {
-      title: "Open Source Contributions",
-      focus: "Global Developer Community",
-      description: "Contributing to developer tooling in the Python and React ecosystems, publishing reusable packages, and writing technical deep-dives on algorithmic optimizations.",
-      badge: "Ongoing Habit",
+      title: "FinTech, GovTech & Public Product Deployments",
+      focus: "Live Testing & Real-World User Impact",
+      description: "Iterating on hackathon-tested concepts like AI Finance Health Coach (expense prediction & anomaly detection), ReturnShield AI (refund fraud scoring), and e-GovDrishti (website accessibility compliance), driving them toward live deployments and real user feedback.",
+      badge: "Product Innovation",
       accent: "#10B981"
     }
   ],
-  visionStatement: "As I conclude my B.Tech CSE degree at CEMK, I view every project not as an endpoint, but as a stepping stone. Whether it's architecting backends that handle millions of requests or exploring cutting-edge AI pipelines, I am dedicated to writing clean code, building durable systems, and continuously growing every single day."
+  visionStatement: "As a final-year B.Tech CSE student at CEM Kolaghat (Overall CGPA: 7.873), my journey connects deep algorithmic discipline with practical cloud and AI engineering. From solving 250+ LeetCode challenges to developing multi-vendor platforms at Infosys Springboard and exploring agentic automation at ServiceNow, every milestone is proof of continuous execution. My next chapter is dedicated to joining high-performance engineering teams, writing clean, reliable code, and building systems that scale effortlessly."
 };

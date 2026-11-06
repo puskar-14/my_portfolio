@@ -5,11 +5,34 @@ import {
   ArrowLeft, 
   Compass, 
   Rocket, 
-  Star 
+  Star,
+  Briefcase,
+  Cpu,
+  Layers,
+  Globe,
+  FileDown,
+  Mail,
+  CheckCircle2
 } from 'lucide-react';
 import { soundManager } from '../utils/audio';
 
+function renderPillarIcon(idx) {
+  switch (idx % 4) {
+    case 0:
+      return <Briefcase className="w-5 h-5 text-[#D97706]" />;
+    case 1:
+      return <Cpu className="w-5 h-5 text-[#8B5CF6]" />;
+    case 2:
+      return <Layers className="w-5 h-5 text-[#2563EB]" />;
+    case 3:
+      return <Globe className="w-5 h-5 text-[#10B981]" />;
+    default:
+      return <Rocket className="w-5 h-5 text-[#D97706]" />;
+  }
+}
+
 export function NextChapterRoom({ onBackToHallway, onNavigateRoom }) {
+
   return (
     <div className="relative w-full max-w-5xl mx-auto my-6 p-6 sm:p-10 bg-[#FAF7F2] sketch-card text-[#3C3630] animate-fadeIn">
       {/* Top Bar with Room Tag & Navigation */}
@@ -36,6 +59,12 @@ export function NextChapterRoom({ onBackToHallway, onNavigateRoom }) {
           >
             ← Contact Room
           </button>
+          <button
+            onClick={() => onNavigateRoom('projects')}
+            className="px-2.5 py-1 rounded bg-[#FFDBC2] hover:bg-[#FED7AA] border border-[#3C3630] font-medium cursor-pointer"
+          >
+            Projects Room →
+          </button>
         </div>
       </div>
 
@@ -61,16 +90,17 @@ export function NextChapterRoom({ onBackToHallway, onNavigateRoom }) {
             <div className="w-12 h-12 rounded-full bg-[#FEF08A] border border-[#3C3630] flex items-center justify-center mx-auto mb-2 text-[#854D0E]">
               <Star className="w-6 h-6 animate-pulse" />
             </div>
-            <p className="text-xs font-bold uppercase tracking-wider text-[#854D0E]">The Horizon</p>
-            <p className="text-xs font-bold text-[#713F12] mt-0.5">2025 and Beyond</p>
+            <p className="text-xs font-bold uppercase tracking-wider text-[#854D0E]">Career Horizon</p>
+            <p className="text-xs font-bold text-[#713F12] mt-0.5">2025–2026 Graduate</p>
+            <p className="text-[10px] text-[#854D0E] mt-0.5 font-medium">B.Tech CSE • 7.873 CGPA</p>
           </div>
         </div>
       </div>
 
       {/* Vision Statement */}
-      <div className="my-6 p-5 rounded-2xl bg-white border border-[#3C3630]/25 shadow-xs">
+      <div className="my-6 p-6 rounded-2xl bg-white border-2 border-[#3C3630] shadow-xs">
         <h3 className="text-xs uppercase tracking-wider font-bold text-[#854D0E] mb-2 flex items-center gap-1.5">
-          <Sparkles className="w-4 h-4 text-[#D97706]" /> Personal Engineering Philosophy
+          <Sparkles className="w-4 h-4 text-[#D97706]" /> Personal Engineering Philosophy & Mission
         </h3>
         <p className="text-xs sm:text-sm text-[#451A03] leading-relaxed">
           {nextChapterData.visionStatement}
@@ -82,10 +112,10 @@ export function NextChapterRoom({ onBackToHallway, onNavigateRoom }) {
         {nextChapterData.upcomingPillars.map((pillar, idx) => (
           <div
             key={idx}
-            className="p-5 rounded-2xl bg-white border-2 border-[#3C3630] sketch-card flex flex-col justify-between"
+            className="p-6 rounded-2xl bg-white border-2 border-[#3C3630] sketch-card flex flex-col justify-between hover:border-[#D97706] transition-colors"
           >
             <div>
-              <div className="flex items-center justify-between gap-2 mb-2">
+              <div className="flex items-center justify-between gap-2 mb-3">
                 <span
                   className="px-2.5 py-0.5 text-xs font-bold rounded-full border border-[#3C3630]"
                   style={{ backgroundColor: '#FEF9C3', color: '#713F12' }}
@@ -95,16 +125,64 @@ export function NextChapterRoom({ onBackToHallway, onNavigateRoom }) {
                 <span className="text-xs font-mono text-[#854D0E] font-bold">Pillar 0{idx + 1}</span>
               </div>
 
-              <h4 className="text-base font-bold text-[#1E293B] mb-0.5">{pillar.title}</h4>
-              <p className="text-xs text-[#B45309] font-medium mb-3">{pillar.focus}</p>
-              <p className="text-xs text-[#475569] leading-relaxed">{pillar.description}</p>
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-10 h-10 rounded-xl bg-[#FEF9C3] border border-[#FDE047] flex items-center justify-center shrink-0">
+                  {renderPillarIcon(idx)}
+                </div>
+                <div>
+                  <h4 className="text-base font-bold text-[#1E293B] leading-tight">{pillar.title}</h4>
+                  <p className="text-xs text-[#B45309] font-medium mt-0.5">{pillar.focus}</p>
+                </div>
+              </div>
+
+              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed mt-3">{pillar.description}</p>
             </div>
 
-            <div className="mt-4 pt-3 border-t border-[#F1F5F9] flex items-center gap-1.5 text-xs font-semibold text-[#854D0E]">
-              <Rocket className="w-3.5 h-3.5" /> High Impact Priority
+            <div className="mt-4 pt-3 border-t border-[#F1F5F9] flex items-center justify-between text-xs font-semibold text-[#854D0E]">
+              <span className="flex items-center gap-1.5">
+                <Rocket className="w-3.5 h-3.5" /> High Impact Priority
+              </span>
+              <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Interactive Finale CTA Banner: Let's Build the Next Chapter */}
+      <div className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-[#FFFBEB] via-[#FEF3C7] to-[#FDE68A] border-2 border-[#3C3630] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <span className="text-xs font-mono font-bold text-[#854D0E] uppercase tracking-wider">
+            Ready to collaborate?
+          </span>
+          <h3 className="text-lg sm:text-xl font-black text-[#713F12] mt-0.5">
+            Let's Build the Next Chapter Together
+          </h3>
+          <p className="text-xs text-[#92400E] mt-1 max-w-md">
+            Open for software development roles, backend opportunities, and technical collaborations.
+          </p>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+          <a
+            href="/Puskar_Kumar_Prasad_Resume.pdf"
+            download="Puskar_Kumar_Prasad_Resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => soundManager.playTrophyChime()}
+            className="px-4 py-2.5 rounded-xl bg-[#713F12] text-white hover:bg-[#451A03] text-xs font-bold flex items-center gap-1.5 sketch-btn cursor-pointer"
+          >
+            <FileDown className="w-4 h-4" /> Download Resume
+          </a>
+          <button
+            onClick={() => {
+              soundManager.playDoorOpen();
+              onNavigateRoom('contact');
+            }}
+            className="px-4 py-2.5 rounded-xl bg-white text-[#713F12] border border-[#3C3630] hover:bg-[#FEFCE8] text-xs font-bold flex items-center gap-1.5 sketch-btn cursor-pointer"
+          >
+            <Mail className="w-4 h-4" /> Get in Touch
+          </button>
+        </div>
       </div>
     </div>
   );
